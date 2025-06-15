@@ -1,0 +1,51 @@
+---
+title: "Adv_R(HW1)"
+author: "Neha Singh 24218922"
+format: 
+  pdf:
+    fontsize: 12pt
+    mainfont: "Times New Roman"
+execute:
+  warning: false
+  error: true
+echo: false
+---
+
+## CO2 Uptake in Grass Plants
+
+## Introduction
+
+The `CO2` dataset records ***carbon dioxide uptake*** in grass plants.\
+It helps us analyze plant response to changes in **CO₂ concentration**.
+
+## Plot and Approach
+
+We use the `ggplot2` package to create a scatter plot of **CO₂ concentration (conc)** against **uptake**, grouped by plant type.
+
+```{r}
+# Load the ggplot2 package for plotting
+library(ggplot2)
+
+# Create a scatter plot of CO2 concentration vs uptake
+# Color the points by plant Type (Quebec or Mississippi)
+ggplot(CO2, aes(x = conc, y = uptake, color = Type)) +
+  geom_point() +  # Plot the individual observations
+  geom_smooth(method = "lm", se = FALSE) +  # Add regression line without confidence interval
+  labs(
+    title = "CO2 Uptake vs Concentration in Grass Plants",  # Main title
+    x = "CO2 Concentration (mL/L)",                         # X-axis label
+    y = "CO2 Uptake (μmol/m² sec)"                          # Y-axis label
+  ) +
+  theme_minimal()  # Apply a clean minimal theme
+```
+
+## Description of the Graph
+
+The plot illustrates the relationship between **`CO₂ concentration`** and **`uptake`** in grass plants.
+
+A fitted linear model is shown for each plant group ***(Quebec and Mississippi)*** to visualize trends.\
+Uptake generally increases with higher CO₂ concentration, with Quebec plants typically showing higher uptake under chilled conditions.
+
+```{r}
+# Update for second commit – edited June 16
+```
